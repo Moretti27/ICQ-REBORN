@@ -16,7 +16,7 @@ if not exist "server\server.js" (
 )
 
 rem --- Elevate automatically when firewall rule is missing ---
-netsh advfirewall firewall show rule name="ICQ Reborn Server 22005" >nul 2>nul
+netsh advfirewall firewall show rule name="ICQ Reborn Server 22007" >nul 2>nul
 if errorlevel 1 (
   net session >nul 2>&1
   if errorlevel 1 (
@@ -24,8 +24,8 @@ if errorlevel 1 (
     powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process -FilePath '%~f0' -Verb RunAs"
     exit /b
   )
-  echo Adding Windows Firewall rule for TCP 22005...
-  netsh advfirewall firewall add rule name="ICQ Reborn Server 22005" dir=in action=allow protocol=TCP localport=22005 >nul
+  echo Adding Windows Firewall rule for TCP 22007...
+  netsh advfirewall firewall add rule name="ICQ Reborn Server 22007" dir=in action=allow protocol=TCP localport=22007 >nul
   if errorlevel 1 (
     echo WARNING: could not create the Firewall rule.
   ) else (
@@ -58,7 +58,7 @@ if not exist "node_modules" (
   )
 )
 
-set "PORT=22005"
+set "PORT=22007"
 set "LANIP="
 
 for /f "tokens=2 delims=:" %%A in ('ipconfig ^| findstr /C:"IPv4" ^| findstr "192.168.3."') do (
@@ -76,21 +76,21 @@ echo.
 echo ==========================================
 echo          ICQ Reborn PC Host
 echo ==========================================
-echo Port:       22005
-echo Local:      http://127.0.0.1:22005
-if defined LANIP echo LAN:        http://!LANIP!:22005
-echo Public:     http://31.135.108.120:22005
-echo Health:     http://31.135.108.120:22005/health
+echo Port:       22007
+echo Local:      http://127.0.0.1:22007
+if defined LANIP echo LAN:        http://!LANIP!:22007
+echo Public:     http://2.27.43.240:22007
+echo Health:     http://2.27.43.240:22007/health
 echo Data:       server\data
 echo.
 echo Router forwarding:
-if defined LANIP echo TCP 22005 -^> !LANIP!:22005
-if not defined LANIP echo TCP 22005 -^> this PC LAN IPv4:22005
+if defined LANIP echo TCP 22007 -^> !LANIP!:22007
+if not defined LANIP echo TCP 22007 -^> this PC LAN IPv4:22007
 echo.
 echo Keep the server\data folder when updating the Host.
 echo.
 echo YooMoney VIP webhook after server starts:
-echo http://31.135.108.120:22005/api/support/yoomoney
+echo http://2.27.43.240:22007/api/support/yoomoney
 echo The notification secret is printed locally by the server below.
 echo Configure HTTP notifications in YooMoney once for automatic VIP.
 echo Close this window to stop the server.
