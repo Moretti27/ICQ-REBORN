@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "listenPort": 22005,
+  "publicBaseUrl": "http://31.135.108.120:22005",
+  "fallbacks": [
+    "http://192.168.3.3:22005"
+  ],
+  "bootstrapUrl": "https://raw.githubusercontent.com/Moretti27/ICQ-REBORN/main/server-config.json",
+  "github": {
+    "repository": "Moretti27/ICQ-REBORN",
+    "branch": "main",
+    "path": "server-config.json"
+  }
+}
