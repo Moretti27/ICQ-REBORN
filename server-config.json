@@ -1,8 +1,8 @@
 {
   "version": 3,
-  "publicBaseUrl": "http://31.135.108.120:22005",
+  "publicBaseUrl": "http://2.27.43.240:22007",
   "fallbacks": [
-    "http://192.168.3.3:22005"
+    "http://192.168.3.3:22007"
   ],
   "updatedAt": "2026-10-30",
   "transport": "direct"
