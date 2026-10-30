@@ -8,7 +8,7 @@ const jwt=require('jsonwebtoken');
 const crypto=require('crypto');
 const {WebSocketServer}=require('ws');
 
-const PORT=Number(process.env.PORT||22005);
+const PORT=Number(process.env.PORT||22007);
 const SECRET_FILE=path.join(__dirname,'data','server_secret.txt');
 function persistentSecret(){
   if(process.env.JWT_SECRET)return process.env.JWT_SECRET;
