@@ -78,8 +78,8 @@ async function flushQueue(){let q=queueGet(),left=[];for(const a of q){try{
  else if(a.type==='avatar')me=await api('/api/me/avatar',{method:'POST',body:JSON.stringify({data:a.data})});
  }catch(_){left.push(a)}}queueSet(left);if(!left.length){try{await loadContacts();await loadGroups()}catch(_){}}}
 const BOOTSTRAP_URL='https://raw.githubusercontent.com/Moretti27/ICQ-REBORN/main/server-config.json';
-const PUBLIC_FALLBACK='http://31.135.108.120:22005';
-const LOCAL_FALLBACK='http://192.168.3.3:22005';
+const PUBLIC_FALLBACK='http://2.27.43.240:22007';
+const LOCAL_FALLBACK='http://192.168.3.3:22007';
 let base=(storeGet('resolvedServer')||'').replace(/\/$/,'');
 const nativeHealthWaiters=new Map();
 window.__nativeHealthResult=(id,raw)=>{const f=nativeHealthWaiters.get(id);if(f){nativeHealthWaiters.delete(id);f(raw||'')}};
